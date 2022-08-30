@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Weather app</title>
+</head>
+<body>
+<div class = 'container'>
+    <div class = 'jumbotron'>
+        <h2>Here You can get temperature of any city</h2>
+    </div>
+</div>
+<div class = 'container'>
+    <form method="post">
+    {% csrf_token %}
+        
+{{ form.city_name }}
+    <input type="submit" value="get temp">
+</form>
+</div>
+<div class = 'container'>
+   {{ city_name }}
+    {{ temperature }}
+    <img src="https://openweathermap.org/img/w/{{ icon }}.png" alt="image"></div>
+
+<a href="{% url 'weather_app:history' %}">History</a>
+</body>
+</html>
